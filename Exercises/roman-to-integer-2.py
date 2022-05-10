@@ -1,5 +1,4 @@
 def romanToInt(s: str) -> int:
-    # Dictionary AKA map
     SYMBOLS = {'I': 1,
                'V': 5,
                'X': 10,
@@ -10,15 +9,13 @@ def romanToInt(s: str) -> int:
 
     solution = 0
 
-    # s[sym + 1] will be out of array bounds if you loop to len(s)
     for sym in range(0, len(s) - 1):
         if SYMBOLS[s[sym]] < SYMBOLS[s[sym + 1]]:
             solution -= SYMBOLS[s[sym]]
         else:
             solution += SYMBOLS[s[sym]]
 
-    solution += SYMBOLS[s[-1]]  # account for last character
-
+    solution += SYMBOLS[s[-1]]
     return solution
 
 
